@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:talabat_like_app/view/category_list.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:talabat_like_app/view/drag_playground_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Talabat like app', home: CategoryList());
+    return ScreenUtilInit(
+      designSize: const Size(390, 844),
+      minTextAdapt: true,
+
+      builder: (_, child) {
+        return MaterialApp(title: 'Talabat like app', home: child);
+      },
+      child: DragPlaygroundScreen(),
+    );
   }
 }
