@@ -5,25 +5,13 @@ class FoodCardGridWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            spreadRadius: 0,
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-
+    return Card(
+      color: Colors.white,
       child: Flex(
         mainAxisSize: MainAxisSize.min,
         direction: Axis.vertical,
         children: [
-          Flexible(flex: 2, child: Image.asset('assets/burger.png')),
+          Flexible(flex: 1, child: Image.asset('assets/burger.png')),
           Flexible(
             flex: 1,
             child: Column(
@@ -33,25 +21,22 @@ class FoodCardGridWidget extends StatelessWidget {
                   'Big Burger 🍔',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                 ),
-                Expanded(
-                  child: Text(
-                    'this is a 250 GM Burger with extra cheese and tomato and extra cheese and tomato and extra cheese and tomato',
-                    maxLines: 3,
-                  ),
+                Text(
+                  'this is a 250 GM Burger with extra cheese and tomato and extra cheese and tomato and extra cheese and tomato',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8),
-                        child: Text(
-                          '350 L.E',
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      child: Text(
+                        '350 L.E',
+                        style: TextStyle(fontWeight: FontWeight.w700),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),

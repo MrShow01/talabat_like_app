@@ -9,16 +9,17 @@ class FoodCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
+
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
             spreadRadius: 0,
             blurRadius: 10,
-            offset: const Offset(0, 4),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
-
+      padding: EdgeInsets.symmetric(horizontal: 8),
       child: Row(
         children: [
           Image.asset('assets/burger.png'),
@@ -36,12 +37,9 @@ class FoodCardWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8),
-                      child: Text(
-                        '350 L.E',
-                        style: TextStyle(fontWeight: FontWeight.w700),
-                      ),
+                    Text(
+                      '350 L.E',
+                      style: TextStyle(fontWeight: FontWeight.w700),
                     ),
                   ],
                 ),

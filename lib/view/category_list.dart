@@ -22,28 +22,70 @@ class CategoryList extends StatelessWidget {
                   'Burger 🍔',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                 ),
+
                 ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: 3,
-                  separatorBuilder: (context, index) => Padding(
-                    padding: EdgeInsetsGeometry.symmetric(vertical: 8),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 16),
+                  itemBuilder: (context, index) => ListTile(
+                    leading: Image.asset('assets/burger.png'),
+                    title: Text(
+                      'Big Burger 🍔',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
+                    ),
+                    subtitle: Text(
+                      'this is a 250 GM Burger with extra cheese and tomato and extra cheese and tomato and extra cheese and tomato',
+                    ),
+                    trailing: Text(
+                      '15\$',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
+                    ),
+                    dense: false,
+                    enabled: true,
+                    //    contentPadding: EdgeInsets.all(16),
+                    focusColor: Colors.red,
+                    horizontalTitleGap: 16,
+                    isThreeLine: false,
+                    selected: false,
+                    visualDensity: VisualDensity(
+                      vertical: VisualDensity.minimumDensity,
+                      horizontal: VisualDensity.minimumDensity,
+                    ),
                   ),
-                  itemBuilder: (context, index) => FoodCardWidget(),
                 ),
-
-                GridView.builder(
+                ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  itemCount: 3,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 16),
+                  itemBuilder: (context, index) => FoodCardWidget(),
+                ),
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.7,
-                    mainAxisSpacing: 16,
                     crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
                   ),
-                  itemCount: 5,
+                  itemCount: 3,
                   itemBuilder: (context, index) => FoodCardGridWidget(),
+                ),
+                GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
+                  children: [FoodCardGridWidget(), FoodCardGridWidget()],
                 ),
               ],
             ),
