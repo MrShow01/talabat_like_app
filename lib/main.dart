@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:talabat_like_app/view/drag_playground_screen.dart';
+import 'package:talabat_like_app/view/product_details_screen.dart';
+import 'package:talabat_like_app/view/root_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,9 +18,18 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
 
       builder: (_, child) {
-        return MaterialApp(title: 'Talabat like app', home: child);
+        return MaterialApp(
+          title: 'Talabat like app',
+          // home: child,
+          routes: {
+            '/': (context) => RootScreen(),
+
+            ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
+          },
+        );
       },
-      child: DragPlaygroundScreen(),
+
+      //  child: HomeScreen(),
     );
   }
 }
