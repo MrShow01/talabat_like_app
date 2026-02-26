@@ -70,7 +70,7 @@ class HomeCubitController extends Cubit<HomeState> {
       "ratingsCount": product.ratingsCount,
       "category": product.category,
       "image": product.image,
-    }, conflictAlgorithm: ConflictAlgorithm.ignore);
+    }, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   updateProduct(Products product) async {
@@ -87,6 +87,7 @@ class HomeCubitController extends Cubit<HomeState> {
       },
       where: 'id = ?',
       whereArgs: [product.id],
+      conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 
