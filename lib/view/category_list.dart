@@ -2,9 +2,9 @@ import 'dart:developer' show log;
 import 'dart:math' as math hide log;
 
 import 'package:flutter/material.dart';
-import 'package:talabat_like_app/widgets/food_card_grid_widget.dart';
-import 'package:talabat_like_app/widgets/food_card_widget.dart';
-import 'package:talabat_like_app/widgets/my_location_widget.dart';
+import 'package:talabat_like_app/features/home/view/widgets/food_card_grid_widget.dart';
+import 'package:talabat_like_app/features/home/view/widgets/food_card_widget.dart';
+import 'package:talabat_like_app/shared_widgets/my_location_widget.dart';
 
 class CategoryList extends StatelessWidget {
   const CategoryList({super.key});

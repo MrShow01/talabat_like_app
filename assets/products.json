@@ -1,0 +1,54 @@
+    {
+        "products": [
+            {
+            "id": 1,
+            "name": "Burger",
+            "description": "Juicy grilled burger with lettuce, tomato, and cheese",
+            "price": 200,
+            "rating": 4.5,
+            "category": "Fast Food",
+            "ratingsCount": 1150,
+            "image": "assets/burger.png"
+            },
+            {
+            "id": 2,
+            "name": "Chicken",
+            "description": "Juicy grilled chicken with herbs and spices",
+            "price": 350,
+            "rating": 4.0,
+            "ratingsCount": 850,
+            "category": "Grilled",
+            "image": "assets/chicken.png"
+            },
+            {
+            "id": 3,
+            "name": "Meat",
+            "description": "Juicy grilled meat with herbs and spices",
+            "price": 400,
+            "rating": 4.2,
+            "ratingsCount": 750,
+            "category": "Steak",
+            "image": "assets/meat.png"
+            },
+            {
+            "id": 4,
+            "name": "Sea Food",
+            "description": "Fresh seafood platter with shrimp, crab, and fish",
+            "price": 500,
+            "rating": 4.8,
+            "ratingsCount": 1200,
+            "category": "Seafood",
+            "image": "assets/sea-food.png"
+            },
+            {
+            "id": 5,
+            "name": "Steak",
+            "description": "Tender grilled steak with garlic butter",
+            "price": 450,
+            "rating": 4.6,
+            "ratingsCount": 900,
+            "category": "Steak",
+            "image": "assets/meat.png"
+            }
+        ]
+    }

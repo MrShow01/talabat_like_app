@@ -1,10 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:talabat_like_app/features/cart/controller/bloc_observer.dart';
+import 'package:talabat_like_app/features/cart/controller/cart_bloc_controller.dart';
+import 'package:talabat_like_app/features/cart/controller/cart_cubit_controller.dart';
+import 'package:talabat_like_app/features/home/controller/home_cubit_controller.dart';
+import 'package:talabat_like_app/view/page_3.dart';
 import 'package:talabat_like_app/view/product_details_screen.dart';
 import 'package:talabat_like_app/view/root_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  Bloc.observer = BlocObserv();
+
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => CartBlocController()),
+        BlocProvider(create: (context) => CartCubitController()),
+        BlocProvider(
+          create: (context) => HomeCubitController()..loadProducts(),
+        ),
+      ],
+
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -25,6 +45,7 @@ class MyApp extends StatelessWidget {
             '/': (context) => RootScreen(),
 
             ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
+            Page3Screen.routeName: (context) => Page3Screen(),
           },
         );
       },
