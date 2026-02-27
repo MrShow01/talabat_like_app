@@ -33,15 +33,16 @@ class Products {
   int? ratingsCount;
   String? image;
 
-  Products(
-      {this.id,
-      this.name,
-      this.description,
-      this.price,
-      this.rating,
-      this.category,
-      this.ratingsCount,
-      this.image});
+  Products({
+    this.id,
+    this.name,
+    this.description,
+    this.price,
+    this.rating,
+    this.category,
+    this.ratingsCount,
+    this.image,
+  });
 
   Products.fromJson(Map<String, dynamic> json) {
     id = json['id'];

@@ -39,6 +39,15 @@ class MyApp extends StatelessWidget {
 
       builder: (_, child) {
         return MaterialApp(
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+            scaffoldBackgroundColor: Colors.white,
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.white,
+              elevation: 0,
+              iconTheme: IconThemeData(color: Colors.black),
+            ),
+          ),
           title: 'Talabat like app',
           // home: child,
           routes: {

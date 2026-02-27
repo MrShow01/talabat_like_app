@@ -111,8 +111,13 @@ class HomeFoodCardWidget extends StatelessWidget {
                   padding: WidgetStatePropertyAll(EdgeInsets.all(10)),
                   minimumSize: WidgetStatePropertyAll(Size(0, 0)),
                 ),
-                onPressed: () {},
-                icon: Image.asset('assets/cart.png', height: 28),
+                onPressed: () {
+                  context.read<HomeCubitController>().deleteProducts(
+                    product.id ?? 0,
+                  );
+                  context.read<HomeCubitController>().loadProducts();
+                },
+                icon: Icon(Icons.delete, color: Colors.white, size: 24),
               ),
             ],
           ),

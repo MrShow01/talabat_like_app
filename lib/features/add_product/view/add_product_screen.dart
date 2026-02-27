@@ -8,22 +8,18 @@ class AddProductScreen extends StatelessWidget {
 
   TextEditingController idController = TextEditingController();
   TextEditingController nameController = TextEditingController();
-
   TextEditingController descriptionController = TextEditingController();
-
   TextEditingController priceController = TextEditingController();
-
   TextEditingController ratingController = TextEditingController();
-
   TextEditingController categoryController = TextEditingController();
-
   TextEditingController ratingsCountController = TextEditingController();
   TextEditingController imageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Edit product')),
+      backgroundColor: Colors.white,
+      appBar: AppBar(title: Text('Add product'), backgroundColor: Colors.white),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(32.0),
         child: ElevatedButton(
@@ -47,7 +43,7 @@ class AddProductScreen extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
-            backgroundColor: Colors.blue,
+            backgroundColor: Color(0xffF55540),
           ),
           child: Text(
             'Save',

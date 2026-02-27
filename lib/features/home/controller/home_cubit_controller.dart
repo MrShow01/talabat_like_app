@@ -14,23 +14,13 @@ class HomeCubitController extends Cubit<HomeState> {
     emit(HomeLoading());
     try {
       await openDb();
-      // await Future.delayed(Duration(seconds: 3));
-      //  await deleteProducts(1);
-      // await updateProduct(
-      //   Products(
-      //     id: 1,
-      //     name: 'Burger',
-      //     description: 'Delicious burger with cheese and lettuce',
-      //     price: 450,
-      //     rating: 4.9,
-      //     category: 'Fast Food',
-      //     ratingsCount: 500,
-      //     image: 'assets/burger.png',
-      //   ),
-      // );
-      final response = await database.rawQuery(
-        'SELECT * FROM Products ORDER BY Price DESC',
-      );
+      // final data = await rootBundle.loadString('assets/products.json');
+      // Map<String, dynamic> jsonData = await json.decode(data);
+      // productModel = ProductModel.fromJson(jsonData);
+      // productsList = productModel?.products ?? [];
+
+      //insertProducts(productsList);
+      final response = await database.rawQuery('SELECT * FROM Products');
       Map<String, dynamic> fakeJson = {"products": response};
       // 2. Decode the string into a Map
       //  Map<String, dynamic> data = await json.decode(response);
@@ -47,7 +37,7 @@ class HomeCubitController extends Cubit<HomeState> {
 
   openDb() async {
     var databasesPath = await getDatabasesPath();
-    String path = '${databasesPath}demo.db';
+    String path = '$databasesPath/demo.db';
     log(path);
     database = await openDatabase(
       path,
@@ -61,16 +51,14 @@ class HomeCubitController extends Cubit<HomeState> {
   }
 
   insertProduct(Products product) async {
-    database.insert('Products', {
-      "id": product.id,
-      "name": product.name,
-      "description": product.description,
-      "price": product.price,
-      "rating": product.rating,
-      "ratingsCount": product.ratingsCount,
-      "category": product.category,
-      "image": product.image,
-    }, conflictAlgorithm: ConflictAlgorithm.replace);
+    database.transaction((transaction) async {
+      await transaction.insert(
+        'Products',
+        product.toJson(),
+
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
+    });
   }
 
   updateProduct(Products product) async {
@@ -87,11 +75,12 @@ class HomeCubitController extends Cubit<HomeState> {
       },
       where: 'id = ?',
       whereArgs: [product.id],
+
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 
-  Future<void> insertProducts(List<Products> product) async {
+  Future<void> insertProducts(List<Products> productsList) async {
     final batch = database.batch();
 
     for (var product in productsList) {
@@ -113,6 +102,6 @@ class HomeCubitController extends Cubit<HomeState> {
   }
 
   deleteProducts(int id) async {
-    await database.delete('Products', where: 'id = ?', whereArgs: [id]);
+    await database.delete('Products', where: 'id = $id');
   }
 }

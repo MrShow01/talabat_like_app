@@ -16,15 +16,10 @@ class EditProductScreen extends StatefulWidget {
 class _EditProductScreenState extends State<EditProductScreen> {
   //   Products(
   TextEditingController nameController = TextEditingController();
-
   TextEditingController descriptionController = TextEditingController();
-
   TextEditingController priceController = TextEditingController();
-
   TextEditingController ratingController = TextEditingController();
-
   TextEditingController categoryController = TextEditingController();
-
   TextEditingController ratingsCountController = TextEditingController();
   @override
   void initState() {
@@ -64,7 +59,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
-            backgroundColor: Colors.blue,
+            backgroundColor: Color(0xffF55540),
           ),
           child: Text(
             'Save',
