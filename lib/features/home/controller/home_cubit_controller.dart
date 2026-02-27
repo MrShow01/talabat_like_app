@@ -56,7 +56,7 @@ class HomeCubitController extends Cubit<HomeState> {
         'Products',
         product.toJson(),
 
-        conflictAlgorithm: ConflictAlgorithm.replace,
+        conflictAlgorithm: ConflictAlgorithm.ignore,
       );
     });
   }
