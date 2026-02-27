@@ -33,17 +33,36 @@ class _RootScreenState extends State<RootScreen> {
 
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       resizeToAvoidBottomInset: true,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => AddProductScreen()),
-          ).whenComplete(
-            () => context.read<HomeCubitController>().loadProducts(),
-          );
-        },
-        backgroundColor: Colors.black,
-        child: Icon(Icons.add, color: Colors.white),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+            onPressed: () async {
+              context.read<HomeCubitController>().savePrice();
+            },
+            child: Text('save price', style: TextStyle(color: Colors.white)),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+            onPressed: () async {
+              context.read<HomeCubitController>().hiveTest();
+            },
+            child: Text('Get price', style: TextStyle(color: Colors.white)),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddProductScreen()),
+              ).whenComplete(
+                () => context.read<HomeCubitController>().loadProducts(),
+              );
+            },
+            backgroundColor: Colors.black,
+            child: Icon(Icons.add, color: Colors.white),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,

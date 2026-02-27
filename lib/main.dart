@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_ce_flutter/adapters.dart';
 import 'package:talabat_like_app/features/cart/controller/bloc_observer.dart';
 import 'package:talabat_like_app/features/cart/controller/cart_bloc_controller.dart';
 import 'package:talabat_like_app/features/cart/controller/cart_cubit_controller.dart';
 import 'package:talabat_like_app/features/home/controller/home_cubit_controller.dart';
+import 'package:talabat_like_app/features/home/model/hive_product_model.g.dart';
 import 'package:talabat_like_app/view/page_3.dart';
 import 'package:talabat_like_app/view/product_details_screen.dart';
 import 'package:talabat_like_app/view/root_screen.dart';
 
-void main() {
+void main() async {
   Bloc.observer = BlocObserv();
+
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(ProductAdapter());
 
   runApp(
     MultiBlocProvider(
