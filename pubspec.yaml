@@ -44,6 +44,8 @@ dependencies:
   hive_ce: ^2.19.3
   hive_ce_generator:
   hive_ce_flutter: ^2.3.4
+  http: ^1.6.0
+  dio: ^5.9.2
 
 dev_dependencies:
   flutter_test:

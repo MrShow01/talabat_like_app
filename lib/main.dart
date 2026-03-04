@@ -7,6 +7,7 @@ import 'package:talabat_like_app/features/cart/controller/cart_bloc_controller.d
 import 'package:talabat_like_app/features/cart/controller/cart_cubit_controller.dart';
 import 'package:talabat_like_app/features/home/controller/home_cubit_controller.dart';
 import 'package:talabat_like_app/features/home/model/hive_product_model.g.dart';
+import 'package:talabat_like_app/features/posts/controller/post_cubit.dart';
 import 'package:talabat_like_app/view/page_3.dart';
 import 'package:talabat_like_app/view/product_details_screen.dart';
 import 'package:talabat_like_app/view/root_screen.dart';
@@ -26,6 +27,7 @@ void main() async {
         BlocProvider(
           create: (context) => HomeCubitController()..loadProducts(),
         ),
+        BlocProvider(create: (context) => PostController()..fetchPosts()),
       ],
 
       child: const MyApp(),
