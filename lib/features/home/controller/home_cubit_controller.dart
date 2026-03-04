@@ -58,7 +58,6 @@ class HomeCubitController extends Cubit<HomeState> {
       await transaction.insert(
         'Products',
         product.toJson(),
-
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
     });

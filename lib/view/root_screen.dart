@@ -1,10 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:talabat_like_app/features/add_product/view/add_product_screen.dart';
 import 'package:talabat_like_app/features/cart/view/cart_screen.dart';
-import 'package:talabat_like_app/features/home/controller/home_cubit_controller.dart';
 import 'package:talabat_like_app/features/home/view/home_screen.dart';
 import 'package:talabat_like_app/view/category_list.dart';
 import 'package:talabat_like_app/view/drag_playground_screen.dart';
@@ -36,32 +33,32 @@ class _RootScreenState extends State<RootScreen> {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
-            onPressed: () async {
-              context.read<HomeCubitController>().savePrice();
-            },
-            child: Text('save price', style: TextStyle(color: Colors.white)),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
-            onPressed: () async {
-              context.read<HomeCubitController>().hiveTest();
-            },
-            child: Text('Get price', style: TextStyle(color: Colors.white)),
-          ),
-          FloatingActionButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AddProductScreen()),
-              ).whenComplete(
-                () => context.read<HomeCubitController>().loadProducts(),
-              );
-            },
-            backgroundColor: Colors.black,
-            child: Icon(Icons.add, color: Colors.white),
-          ),
+          // ElevatedButton(
+          //   style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+          //   onPressed: () async {
+          //     context.read<HomeCubitController>().savePrice();
+          //   },
+          //   child: Text('save price', style: TextStyle(color: Colors.white)),
+          // ),
+          // ElevatedButton(
+          //   style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+          //   onPressed: () async {
+          //     context.read<HomeCubitController>().hiveTest();
+          //   },
+          //   child: Text('Get price', style: TextStyle(color: Colors.white)),
+          // ),
+          // FloatingActionButton(
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => AddProductScreen()),
+          //     ).whenComplete(
+          //       () => context.read<HomeCubitController>().loadProducts(),
+          //     );
+          //   },
+          //   backgroundColor: Colors.black,
+          //   child: Icon(Icons.add, color: Colors.white),
+          // ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

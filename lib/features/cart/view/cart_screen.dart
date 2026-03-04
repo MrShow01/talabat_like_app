@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:talabat_like_app/features/cart/controller/cart_bloc_controller.dart';
-import 'package:talabat_like_app/features/cart/controller/cart_bloc_event.dart';
+import 'package:talabat_like_app/features/cart/controller/cart_cubit_controller.dart';
+import 'package:talabat_like_app/features/cart/controller/cart_cubit_state.dart';
 import 'package:talabat_like_app/features/cart/view/widgets/increese_quantity_widget.dart';
 
 class CartPage extends StatelessWidget {
   Color iconcolor = Color(0xffffd2b0);
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CartBlocController, int>(
-      builder: (context, count) {
+    return BlocBuilder<CartCubitController, CartState>(
+      builder: (context, state) {
+        final cartController = context.read<CartCubitController>();
         return Scaffold(
           backgroundColor: Colors.white,
           body: SafeArea(
@@ -177,11 +178,7 @@ class CartPage extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        context
-                                                .read<CartBlocController>()
-                                                .totalPrice
-                                                .toString() +
-                                            ' ج.م',
+                                        '${cartController.totalPrice} ج.م',
                                         style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.w900,
@@ -199,6 +196,57 @@ class CartPage extends StatelessWidget {
                                     ],
                                   ),
                                 ],
+                              ),
+                            ),
+                            SizedBox(height: 24),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: Size(double.infinity, 60),
+                                backgroundColor: Color(0xFFf55540),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () {
+                                cartController.savePrice();
+                              },
+                              child: Text(
+                                'Save Price to Local Storage',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 24),
+
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: Size(double.infinity, 60),
+                                backgroundColor: Color(0xFFf55540),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () {
+                                cartController.getPrice();
+                              },
+                              child: Text(
+                                'Get Price from Local Storage',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'saved Price: ${cartController.savedTotalPrice}',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w900,
+                                color: Color(0xFFf55540),
                               ),
                             ),
                           ],
@@ -235,7 +283,7 @@ class CartPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '${context.read<CartBlocController>().itemCount} ج.م',
+                          '${cartController.totalPrice} ج.م',
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.w900,
@@ -254,9 +302,7 @@ class CartPage extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        context.read<CartBlocController>().add(
-                          CounterIncrement(),
-                        );
+                        cartController.increment();
                       },
 
                       style: ElevatedButton.styleFrom(
