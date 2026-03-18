@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+import 'package:talabat_like_app/features/api_products/view/product_list_screen.dart';
 import 'package:talabat_like_app/features/home/controller/home_cubit_controller.dart';
 import 'package:talabat_like_app/features/home/controller/home_cubit_state.dart';
 import 'package:talabat_like_app/features/home/view/widgets/home_food_card_widget.dart';
@@ -132,33 +133,12 @@ class HomeScreen extends StatelessWidget {
                                   children: [
                                     GestureDetector(
                                       onTap: () {
-                                        // Navigator.of(
-                                        //   context,
-                                        // ).pushNamed(ProductDetailsScreen.routeName);
-                                        // Navigator.of(context).pushReplacementNamed(
-                                        //   ProductDetailsScreen.routeName,
-                                        // );
-                                        // Navigator.of(context).pushNamedAndRemoveUntil(
-                                        //   ProductDetailsScreen.routeName,
-                                        //   (route) => false,
-                                        // );
-                                        // Navigator.of(context).push(
-                                        //   MaterialPageRoute(
-                                        //     builder: (context) => ProductDetailsScreen(),
-                                        //   ),
-                                        // );
-                                        //   Navigator.pop(context);
-                                        // Navigator.of(context).pushReplacement(
-                                        //   MaterialPageRoute(
-                                        //     builder: (context) => ProductDetailsScreen(),
-                                        //   ),
-                                        // );
-                                        // Navigator.of(context).pushAndRemoveUntil(
-                                        //   MaterialPageRoute(
-                                        //     builder: (context) => ProductDetailsScreen(),
-                                        //   ),
-                                        //   (route) => false,
-                                        // );
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                ProductListScreen(),
+                                          ),
+                                        );
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(

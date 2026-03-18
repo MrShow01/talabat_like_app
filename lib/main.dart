@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_ce_flutter/adapters.dart';
+import 'package:talabat_like_app/features/api_products/controller/api_product_cubit.dart';
 import 'package:talabat_like_app/features/cart/controller/bloc_observer.dart';
 import 'package:talabat_like_app/features/cart/controller/cart_bloc_controller.dart';
 import 'package:talabat_like_app/features/cart/controller/cart_cubit_controller.dart';
@@ -28,6 +29,9 @@ void main() async {
           create: (context) => HomeCubitController()..loadProducts(),
         ),
         BlocProvider(create: (context) => PostController()..fetchPosts()),
+        BlocProvider(
+          create: (context) => ApiProductCubit()..fetchDioProducts(),
+        ),
       ],
 
       child: const MyApp(),

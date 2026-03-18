@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:talabat_like_app/features/cart/view/cart_screen.dart';
 import 'package:talabat_like_app/features/home/view/home_screen.dart';
-import 'package:talabat_like_app/features/posts/view/posts_screen.dart';
 import 'package:talabat_like_app/view/category_list.dart';
+import 'package:talabat_like_app/view/drag_playground_screen.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
@@ -16,7 +16,7 @@ class RootScreen extends StatefulWidget {
 class _RootScreenState extends State<RootScreen> {
   List<Widget> screens = [
     HomeScreen(),
-    PostsScreen(),
+    DragPlaygroundScreen(begin: 0, end: 10, duration: Duration(seconds: 10)),
     CategoryList(),
     CartPage(),
   ];
