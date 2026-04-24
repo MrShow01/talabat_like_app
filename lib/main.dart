@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,12 +9,20 @@ import 'package:talabat_like_app/features/cart/controller/cart_bloc_controller.d
 import 'package:talabat_like_app/features/cart/controller/cart_cubit_controller.dart';
 import 'package:talabat_like_app/features/home/controller/home_cubit_controller.dart';
 import 'package:talabat_like_app/features/home/model/hive_product_model.g.dart';
+import 'package:talabat_like_app/features/login/controller/login_cubit.dart';
+import 'package:talabat_like_app/features/login/screens/login_screen.dart';
 import 'package:talabat_like_app/features/posts/controller/post_cubit.dart';
+import 'package:talabat_like_app/features/splash/splash_screen.dart';
+import 'package:talabat_like_app/firebase_options.dart';
+import 'package:talabat_like_app/register/controller/register_cubit.dart';
+import 'package:talabat_like_app/register/screens/register_screen.dart';
 import 'package:talabat_like_app/view/page_3.dart';
 import 'package:talabat_like_app/view/product_details_screen.dart';
 import 'package:talabat_like_app/view/root_screen.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Bloc.observer = BlocObserv();
 
   await Hive.initFlutter();
@@ -25,6 +34,9 @@ void main() async {
       providers: [
         BlocProvider(create: (context) => CartBlocController()),
         BlocProvider(create: (context) => CartCubitController()),
+        BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(create: (context) => RegisterCubit()),
+
         BlocProvider(
           create: (context) => HomeCubitController()..loadProducts(),
         ),
@@ -63,9 +75,12 @@ class MyApp extends StatelessWidget {
           title: 'Talabat like app',
           // home: child,
           routes: {
-            '/': (context) => RootScreen(),
+            '/': (context) => SplashScreen(),
 
             ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
+            RootScreen.routeName: (context) => RootScreen(),
+            LoginScreen.routeName: (context) => LoginScreen(),
+            RegisterScreen.routeName: (context) => RegisterScreen(),
             Page3Screen.routeName: (context) => Page3Screen(),
           },
         );

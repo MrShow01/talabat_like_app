@@ -58,6 +58,7 @@ class CartCubitController extends Cubit<CartState> {
     await prefs.setString('category', product.category ?? '');
     await prefs.setInt('ratingsCount', product.ratingsCount ?? 0);
     await prefs.setString('image', product.image ?? '');
+
     // log('Price saved: $totalPrice');
     // await Hive.openBox('totalPriceBox');
     // var box = Hive.box('totalPriceBox');

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "94054168914",
+    "project_id": "round4-71643",
+    "storage_bucket": "round4-71643.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94054168914:android:26c1c90e521432c3c3628b",
+        "android_client_info": {
+          "package_name": "com.example.talabat_like_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV7nUJJQ6YGk_Fa1xmHkWcn4VxL-OKbPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
