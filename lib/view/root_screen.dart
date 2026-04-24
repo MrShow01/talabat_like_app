@@ -33,10 +33,7 @@ class _RootScreenState extends State<RootScreen> {
   notificationInit() {
     NotificationService notificationService = NotificationService();
 
-    notificationService.initInfo().then((value) async {
-      String token = await NotificationService.getToken();
-      log(":::::::TOKEN:::::: $token");
-    });
+    notificationService.initInfo();
   }
 
   @override

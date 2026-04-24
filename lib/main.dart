@@ -12,6 +12,7 @@ import 'package:talabat_like_app/features/home/model/hive_product_model.g.dart';
 import 'package:talabat_like_app/features/login/controller/login_cubit.dart';
 import 'package:talabat_like_app/features/login/screens/login_screen.dart';
 import 'package:talabat_like_app/features/posts/controller/post_cubit.dart';
+import 'package:talabat_like_app/features/splash/cubit/notification_service.dart';
 import 'package:talabat_like_app/features/splash/splash_screen.dart';
 import 'package:talabat_like_app/firebase_options.dart';
 import 'package:talabat_like_app/register/controller/register_cubit.dart';
@@ -73,9 +74,11 @@ class MyApp extends StatelessWidget {
             ),
           ),
           title: 'Talabat like app',
+          navigatorKey: NotificationService.navigatorKey,
           // home: child,
           routes: {
             '/': (context) => SplashScreen(),
+            SplashScreen.routeName: (context) => SplashScreen(),
 
             ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
             RootScreen.routeName: (context) => RootScreen(),

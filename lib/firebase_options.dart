@@ -50,19 +50,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAV7nUJJQ6YGk_Fa1xmHkWcn4VxL-OKbPU',
-    appId: '1:94054168914:android:26c1c90e521432c3c3628b',
-    messagingSenderId: '94054168914',
-    projectId: 'round4-71643',
-    storageBucket: 'round4-71643.firebasestorage.app',
+    apiKey: 'AIzaSyCU41r_9jiKFDPuNMubkpCsM0x0n4XjBsY',
+    appId: '1:60527384077:android:9fe8ab7ced5b62d4f3a744',
+    messagingSenderId: '60527384077',
+    projectId: 'round4-s2',
+    databaseURL: 'https://round4-s2-default-rtdb.firebaseio.com',
+    storageBucket: 'round4-s2.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBwCnS0Q6onqLOJMayVb6n7_GgHMMn5QQ8',
-    appId: '1:94054168914:ios:ba85f385d44f1aecc3628b',
-    messagingSenderId: '94054168914',
-    projectId: 'round4-71643',
-    storageBucket: 'round4-71643.firebasestorage.app',
+    apiKey: 'AIzaSyCUac9LLv3N_yfCCllb0qUnYh0QX3XvF0g',
+    appId: '1:60527384077:ios:7a411338c9f5f888f3a744',
+    messagingSenderId: '60527384077',
+    projectId: 'round4-s2',
+    databaseURL: 'https://round4-s2-default-rtdb.firebaseio.com',
+    storageBucket: 'round4-s2.firebasestorage.app',
     iosBundleId: 'com.example.talabatLikeApp',
   );
 
